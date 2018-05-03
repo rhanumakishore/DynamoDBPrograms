@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.dynamodb.test</groupId>
+	<artifactId>dynamodb-test</artifactId>
+	<version>1.0-SNAPSHOT</version>
+
+	<repositories>
+		<repository>
+			<id>central</id>
+			<name>central</name>
+			<url>http://nexus.sb.karmalab.net/nexus/content/repositories/central</url>
+		</repository>
+		<repository>
+			<id>qengg</id>
+			<name>qengg</name>
+			<url>http://nexus.sb.karmalab.net/nexus/content/repositories/qengg-release</url>
+		</repository>
+		<repository>  
+			<id>dynamodb-local</id>  
+			<name>DynamoDB Local Release Repository</name>  
+			<url>https://s3-us-west-2.amazonaws.com/dynamodb-local/release</url> 
+		</repository>  
+	</repositories>
+
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.0.1.RELEASE</version>
+	</parent>
+
+	<properties>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+	
+	<dependency>  
+
+		<groupId>com.amazonaws</groupId>  
+
+		<artifactId>DynamoDBLocal</artifactId>  
+
+		<version>1.11.0.1</version>  
+
+		<scope></scope>  
+
+  	</dependency>
+		
+		<dependency>
+			<groupId>com.amazonaws</groupId>
+			<artifactId>aws-java-sdk-dynamodb</artifactId>
+			<version>1.11.313</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.github.derjust</groupId>
+			<artifactId>spring-data-dynamodb</artifactId>
+			<version>5.0.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>19.0</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.20</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.7</version>
+		</dependency>
+		
+	</dependencies>
+	
+
+</project>
