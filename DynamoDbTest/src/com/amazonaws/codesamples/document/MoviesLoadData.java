@@ -1,6 +1,6 @@
 // Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 
-package com.amazonaws.codesamples.gsg;
+package com.amazonaws.codesamples.document;
 
 import java.io.File;
 import java.util.Iterator;

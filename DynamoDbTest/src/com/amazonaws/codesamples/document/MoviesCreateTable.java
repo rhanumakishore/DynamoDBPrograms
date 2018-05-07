@@ -1,7 +1,7 @@
 // Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // Licensed under the Apache License, Version 2.0.
 
-package com.amazonaws.codesamples.gsg;
+package com.amazonaws.codesamples.document;
 
 import java.util.Arrays;
 

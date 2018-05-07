@@ -1,6 +1,6 @@
 // Copyright 2012-2015 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 // Licensed under the Apache License, Version 2.0.
-package com.amazonaws.codesamples.annotations;
+package com.amazonaws.codesamples.objectpersistence;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;

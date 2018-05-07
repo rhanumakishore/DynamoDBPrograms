@@ -1,4 +1,4 @@
-package com.amazonaws.codesamples.annotations;
+package com.amazonaws.codesamples.objectpersistence;
 
 import java.util.Arrays;
 
