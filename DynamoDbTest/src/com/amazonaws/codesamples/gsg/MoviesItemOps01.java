@@ -13,7 +13,7 @@ import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.PutItemOutcome;
 import com.amazonaws.services.dynamodbv2.document.Table;
-
+//Insert data to table
 public class MoviesItemOps01 {
 
     public static void main(String[] args) throws Exception {

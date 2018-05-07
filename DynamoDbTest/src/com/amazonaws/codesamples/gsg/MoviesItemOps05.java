@@ -13,7 +13,7 @@ import com.amazonaws.services.dynamodbv2.document.UpdateItemOutcome;
 import com.amazonaws.services.dynamodbv2.document.spec.UpdateItemSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
 import com.amazonaws.services.dynamodbv2.model.ReturnValue;
-
+//Conditional update using expressions
 public class MoviesItemOps05 {
 
     public static void main(String[] args) throws Exception {

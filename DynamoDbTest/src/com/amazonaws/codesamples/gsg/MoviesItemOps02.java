@@ -10,7 +10,7 @@ import com.amazonaws.services.dynamodbv2.document.DynamoDB;
 import com.amazonaws.services.dynamodbv2.document.Item;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.document.spec.GetItemSpec;
-
+//Retrieve data from table
 public class MoviesItemOps02 {
 
     public static void main(String[] args) throws Exception {

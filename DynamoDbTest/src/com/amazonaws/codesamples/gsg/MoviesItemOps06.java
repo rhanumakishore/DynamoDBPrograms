@@ -11,7 +11,7 @@ import com.amazonaws.services.dynamodbv2.document.PrimaryKey;
 import com.amazonaws.services.dynamodbv2.document.Table;
 import com.amazonaws.services.dynamodbv2.document.spec.DeleteItemSpec;
 import com.amazonaws.services.dynamodbv2.document.utils.ValueMap;
-
+//Delete data from the table
 public class MoviesItemOps06 {
 
     public static void main(String[] args) throws Exception {

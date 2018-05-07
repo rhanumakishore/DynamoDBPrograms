@@ -32,8 +32,7 @@ public class MoviesCreateTable {
         try {
             System.out.println("Attempting to create table; please wait...");
             Table table = dynamoDB.createTable(tableName,
-                Arrays.asList(new KeySchemaElement("year", KeyType.HASH), // Partition
-                                                                          // key
+                Arrays.asList(new KeySchemaElement("year", KeyType.HASH), // Partition Key
                     new KeySchemaElement("title", KeyType.RANGE)), // Sort key
                 Arrays.asList(new AttributeDefinition("year", ScalarAttributeType.N),
                     new AttributeDefinition("title", ScalarAttributeType.S)),
