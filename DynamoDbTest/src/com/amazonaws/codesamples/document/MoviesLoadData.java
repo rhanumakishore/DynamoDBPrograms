@@ -5,6 +5,10 @@ package com.amazonaws.codesamples.document;
 import java.io.File;
 import java.util.Iterator;
 
+import com.amazonaws.auth.AWSCredentialsProviderChain;
+import com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper;
+import com.amazonaws.auth.InstanceProfileCredentialsProvider;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -21,11 +25,19 @@ public class MoviesLoadData {
 
     public static void main(String[] args) throws Exception {
 
-        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
-            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
-            .build();
+    AWSCredentialsProviderChain providers = new AWSCredentialsProviderChain(
+				new ProfileCredentialsProvider("sandbox"), new EC2ContainerCredentialsProviderWrapper(),
+				new InstanceProfileCredentialsProvider(false));
 
+     
+        AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(providers)
+				.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://dynamodb.us-west-2.amazonaws.com/", "us-west-2")).build();
+    	/*AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+	            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
+	            .build();*/
         DynamoDB dynamoDB = new DynamoDB(client);
+
+       
 
         Table table = dynamoDB.getTable("Movies");
 
