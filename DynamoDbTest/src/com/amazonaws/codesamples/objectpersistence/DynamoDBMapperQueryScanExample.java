@@ -10,6 +10,11 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TimeZone;
 
+import com.amazonaws.auth.AWSCredentialsProviderChain;
+import com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper;
+import com.amazonaws.auth.InstanceProfileCredentialsProvider;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
+import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
 import com.amazonaws.services.dynamodbv2.datamodeling.DynamoDBAttribute;
@@ -23,7 +28,17 @@ import com.amazonaws.services.dynamodbv2.model.AttributeValue;
 
 public class DynamoDBMapperQueryScanExample {
 
-    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().build();
+    /*static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+            .withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
+            .build();*/
+    
+    static AWSCredentialsProviderChain providers = new AWSCredentialsProviderChain(
+			new ProfileCredentialsProvider("sandbox"), new EC2ContainerCredentialsProviderWrapper(),
+			new InstanceProfileCredentialsProvider(false));
+
+ 
+    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(providers)
+			.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://dynamodb.us-west-2.amazonaws.com/", "us-west-2")).build();
 
     public static void main(String[] args) throws Exception {
         try {

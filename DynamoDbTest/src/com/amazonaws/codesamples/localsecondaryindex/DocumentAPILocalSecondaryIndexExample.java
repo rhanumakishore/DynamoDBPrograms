@@ -5,6 +5,10 @@ package com.amazonaws.codesamples.localsecondaryindex;
 import java.util.ArrayList;
 import java.util.Iterator;
 
+import com.amazonaws.auth.AWSCredentialsProviderChain;
+import com.amazonaws.auth.EC2ContainerCredentialsProviderWrapper;
+import com.amazonaws.auth.InstanceProfileCredentialsProvider;
+import com.amazonaws.auth.profile.ProfileCredentialsProvider;
 import com.amazonaws.client.builder.AwsClientBuilder;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDB;
 import com.amazonaws.services.dynamodbv2.AmazonDynamoDBClientBuilder;
@@ -30,9 +34,19 @@ import com.amazonaws.services.dynamodbv2.model.Select;
 
 public class DocumentAPILocalSecondaryIndexExample {
 
-    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
+	static AWSCredentialsProviderChain providers = new AWSCredentialsProviderChain(
+			new ProfileCredentialsProvider("sandbox"), new EC2ContainerCredentialsProviderWrapper(),
+			new InstanceProfileCredentialsProvider(false));
+
+ 
+    static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard().withCredentials(providers)
+			.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("https://dynamodb.us-west-2.amazonaws.com/", "us-west-2")).build();
+    
+	
+	/*static AmazonDynamoDB client = AmazonDynamoDBClientBuilder.standard()
 			.withEndpointConfiguration(new AwsClientBuilder.EndpointConfiguration("http://localhost:8000", "us-west-2"))
-			.build();
+			.build();*/
+    
     static DynamoDB dynamoDB = new DynamoDB(client);
 
     public static String tableName = "CustomerOrders";
